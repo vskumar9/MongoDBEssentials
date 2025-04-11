@@ -1,0 +1,168 @@
+MongoDB Query Language(MQL)
+---------------------------------------------------------------
+A tool to access data in MongoDB
+Also called the MongoDB query API
+MQL allows you to perform CRUD operations
+JavaScript-based shell
+
+
+use blog
+switched to db blog
+show collections
+db.authors.insertOne({"name":"sanjeev"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67f904255631d96e44c434e7')
+}
+db.authors
+blog.authors
+db.authors.find()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+db.authors.insertOne({"name":"kumar"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67f905385631d96e44c434e8')
+}
+db.authors.insertMany([{"name":"kumar"}, {"name": "jai"}, {"name": "pavan"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67f9057e5631d96e44c434e9'),
+    '1': ObjectId('67f9057e5631d96e44c434ea'),
+    '2': ObjectId('67f9057e5631d96e44c434eb')
+  }
+}
+db.authors.findOne()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+db.authors.find()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+{
+  _id: ObjectId('67f905385631d96e44c434e8'),
+  name: 'kumar'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434e9'),
+  name: 'kumar'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434ea'),
+  name: 'jai'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434eb'),
+  name: 'pavan'
+}
+db.authors.find({"name": "sanjeev"})
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+db.authors.find({name: "sanjeev"})
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+db.authors.updateOne({name: "sanjeev"}, {$set:{website:"https://v-sanjeev-kumar-portfolio.vercel.app"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.authors.find({name: "sanjeev"})
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev',
+  website: 'https://v-sanjeev-kumar-portfolio.vercel.app'
+}
+db.authors.updateOne({ }, {$set:{books:[]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.authors.find()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev',
+  website: 'https://v-sanjeev-kumar-portfolio.vercel.app',
+  books: []
+}
+{
+  _id: ObjectId('67f905385631d96e44c434e8'),
+  name: 'kumar'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434e9'),
+  name: 'kumar'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434ea'),
+  name: 'jai'
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434eb'),
+  name: 'pavan'
+}
+db.authors.updateMany({ }, {$set:{books:[]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+db.authors.find()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev',
+  website: 'https://v-sanjeev-kumar-portfolio.vercel.app',
+  books: []
+}
+{
+  _id: ObjectId('67f905385631d96e44c434e8'),
+  name: 'kumar',
+  books: []
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434e9'),
+  name: 'kumar',
+  books: []
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434ea'),
+  name: 'jai',
+  books: []
+}
+{
+  _id: ObjectId('67f9057e5631d96e44c434eb'),
+  name: 'pavan',
+  books: []
+}
+db.authors.deleteOne({name:"jai"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.authors.find({name:"jai"})
+db.authors.deleteMany({})
+{
+  acknowledged: true,
+  deletedCount: 4
+}
+blog
+
+
+

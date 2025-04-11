@@ -1,0 +1,6 @@
+Challenges: Indexes
+---------------------------------
+Name the database Lookup
+Name the collection records
+Insert a few records
+Create indexes as needed

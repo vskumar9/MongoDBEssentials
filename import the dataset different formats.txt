@@ -1,0 +1,10 @@
+MongoDB database tools
+
+mongostat - stastics on a running mongod
+mongodump - Export dump files to BSON
+mongorestore - imoprt dump files from BSON
+mongoexport import data from JSON or CSV
+
+import the dataset different formats:
+open the cmd
+mongoimport --username="sanjeev" --authenticationDatabase="admin" --db=sample_data inventory.json

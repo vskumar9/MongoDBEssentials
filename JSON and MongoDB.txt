@@ -1,0 +1,39 @@
+The Document Model
+-------------------------------------------------------------------------------------
+MongoDB natively works with JSON documents
+your can store JSON data as it is
+
+
+EX:
+{
+  title: "MongoDB Basics",
+  author: "John Doe",
+  year: 2025
+}
+
+
+JSON and MongoDB
+-----------------------------------
+MongoDB actually uses a binary-encoded serialization of JSON-like document call BSON
+BSON is designed to be lightweight, traversable, and efficient
+BSON can store binary data such as images, timestamps, and longs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

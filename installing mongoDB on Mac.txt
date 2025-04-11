@@ -1,0 +1,17 @@
+installing mongoDB on Mac
+-----------------------------------------------
+open Bash----
+first install node npm -> npm version
+install mongoDB -> npm install -g m
+-> m latest=> enter 'y'
+-> mongod --version
+-> brew tap mongodb/brew
+-> brew install mongosh
+-> mongosh --version
+-> brew install mongo-database-tools
+-> mongoimport
+-> 
+
+
+
+

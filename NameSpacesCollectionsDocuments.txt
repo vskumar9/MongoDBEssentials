@@ -1,0 +1,19 @@
+NameSpaces, collections, documents
+--------------------------------------------------------------------------------------
+use blog
+switched to db blog
+show collections
+db.authors.insertOne({"name":"sanjeev"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67f904255631d96e44c434e7')
+}
+db.authors
+blog.authors
+db.authors.find()
+{
+  _id: ObjectId('67f904255631d96e44c434e7'),
+  name: 'sanjeev'
+}
+blog
+

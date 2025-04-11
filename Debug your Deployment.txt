@@ -1,0 +1,10 @@
+Debug your Deployment
+----------------------------------------------------------------------------
+Check the log files at m1/mongod.log, m2/mongod.log, and m3/mongod.log
+Disable the fork option
+check the oplog
+--> db.oplog.rs.find({"o.msg": {$ne:"periodic noop"}}).sort({$natural: -1}).limit(1).pretty()
+increase the log level
+--> db.getLogComponents()
+--> db.adminCommand({setParameter: 1, logLevel: 2})
+GO to stack overflow 

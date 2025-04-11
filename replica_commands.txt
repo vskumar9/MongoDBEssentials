@@ -1,0 +1,88 @@
+sanjeevkumar.v@PTPLL691 MINGW64 ~
+$ mkdir replicaset
+----> create a folder
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~
+$ cd replicaset/
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~/replicaset
+$ openssl rand -base64 755 > keyfile
+
+-----> Create a key file for our deployment
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~/replicaset
+$ chmod 400 keyfile
+
+-----> for production evenviroment it is recommended that use X.509 certificate instead. we'll use our key file.
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~/replicaset
+$ mkdir -p m{1,2,3}/db
+
+-----> create a multiple folder at a time m1, m2, m3
+
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~/replicaset
+$ touch m1.conf
+
+----> create empty file (m1.conf)
+
+sanjeevkumar.v@PTPLL691 MINGW64 ~/replicaset
+$ code .
+
+----> open vscode. add content below code.
+--------------------------------------------------------------------------------------------------------------
+storage:
+    dbPath: m1/db
+net:
+    bindIp: localhost
+    port: 27017
+security:
+    authorization: enabled
+    keyFile: keyfile
+systemLog:
+    destination: file
+    path: m1/mongod.log
+    logAppend: true
+processManagement:
+    fork: true
+replication:
+    replSetName: mongodb-essentials-rs
+---------------------------------------------------------------------------------------------------------------
+
+sanjeevkumar.v@PTPLL691 MINGW64 /d/MongoDB/replicaset
+$ cp m1.conf m2.conf
+
+sanjeevkumar.v@PTPLL691 MINGW64 /d/MongoDB/replicaset
+$ cp m1.conf m3.conf
+
+sanjeevkumar.v@PTPLL691 MINGW64 /d/MongoDB/replicaset
+$ mongod -f m1.conf
+
+------> copy and configurate the file
+after open compass or cmd run the command "mongosh"
+
+=====================================
+use admin
+switched to db admin
+
+
+config = {_id: "mongodb-essentials-rs", members: [{_id: 0, host: "localhost:27017"}, {_id:1, host: "localhost:27018"}, {_id:2, host: "localhost:27019"}]}
+{
+  _id: 'mongodb-essentials-rs',
+  members: [
+    { _id: 0, host: 'localhost:27017' },
+    { _id: 1, host: 'localhost:27018' },
+    { _id: 2, host: 'localhost:27019' }
+  ]
+}
+rs.initiate(config)
+db.createUser({user:'sanjeev', pwd: passwordPrompt(), roles:["root"]})
+{ ok: 1 }
+db.getSiblingDB("admin").auth("sanjeev")
+{ ok: 1 }
+rs.status()
+db.serverStatus()['repl']
+
+
+
+

@@ -1,0 +1,142 @@
+INDEXES
+--------------------------------------------------------
+when you perform a query
+-If you have no index,the database checks every document
+--> called a collection scan
+--> Not efficient
+
+An index provides an organized way to look up data by storing a subset of the data with pointers to the
+location of the records.
+
+-If you have an index, the database checks the index
+--> if query can be answered with an index, it's called a covered query
+--> More efficient queries and updates 
+
+When should you create an index?
+- When you frequently query on the same fields
+- When you frequently perform range-based queries on fields
+
+But Indexed have costs!
+Indexes need to be maintained 
+- each index adds about 10% write overhead
+It's trade-off-faster read vs. slower writes
+
+When the queries are the most common query patterns
+When you have enough RAM to fit the index
+
+
+
+Type of indexes:
+Single field indexes
+Partial indexes
+Compound indexes
+multikey indexes
+Text indexes
+wildcard indexes
+Geospatial indexes
+Hashed indexes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
