@@ -1,0 +1,36 @@
+Transactions
+----------------------------------------------------------
+An operation on a single document is atomic
+
+Multiple-document Transactions
+------------------------------
+Guarantee atomicity of reads and writes to multiple documents
+Reads return all documents as they are when the read begins
+Either all writes happen or none do
+
+use blog
+session = db.getMongo().startSession({readPreference: {mode: "primary"}})
+session.startTransaction()
+session.getDatabase("blog").authors.updateMany({}, {$set:{message: "transaction occurred"}})
+session.commitTransaction()
+session.endSession()
+db.auth
+db.authors.find()
+
+
+word of warning
+----------------------------------
+use only when absolutely needed
+Overuse can lead to performance degradation
+If you need transactions a lot, check the data model
+
+
+
+
+
+
+
+
+
+
+

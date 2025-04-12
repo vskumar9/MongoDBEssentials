@@ -1,0 +1,24 @@
+Sort, skip, limit
+---------------------------------
+
+use sample_data
+db.movies.find({}, {title: 1, director:1, genres: 1}).sort({title: 1})
+db.movies.find({}, {title: 1, director:1, genres: 1}).sort({director: 1})
+db.movies.find({}, {title: 1, director:1, genres: 1}).sort({title: 1}).skip(100)
+db.movies.find({}, {title: 1, director:1, genres: 1}).sort({title: 1}).skip(100).limit(3)
+
+when the sort is a common query pattern, use an index
+if you have no index, sort and limit is faster
+MongoDB always performs sort, skip, limit, in that order
+
+
+
+
+
+
+
+
+
+
+
+

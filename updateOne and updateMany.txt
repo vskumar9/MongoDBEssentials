@@ -1,0 +1,26 @@
+updateOne and updateMany
+-----------------------------------------------------------
+use sample_database
+show collections
+db.authors.find()
+db.authors.updateOne({name: "sanjeev"}, {$set: {message: "Hello world"}})
+db.authors.updateMany({}, {$set: {message: "Hello"}})
+db.authors.updateMany({}, {$unset: {message: ""}}) --> disappeared for everyone
+
+Commonly used update operators
+---------------------------------
+{$set: {msg: "hello"}}
+{$unset: {msg: ""}}
+{$inc: {quantity: -1, ordered: 1}}
+{$mul: {price: 0.9}}
+{$max: {bid: 500}}
+{$min: {lowest_available_price: 500}}
+
+
+
+
+
+
+
+
+

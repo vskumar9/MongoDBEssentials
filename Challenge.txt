@@ -1,0 +1,34 @@
+Challenge:
+---------------------------------------------------------
+create database
+create an orders collection with a few documents; each should have:
+information about the user: name, address, phone number, email, and account balance
+information about the restaurant: name, address, and phone number
+
+Order time, Order items with price
+create indexes as needed
+
+- write a query to find the most expensive order
+- Sort orders by the name of the restaurant 
+- Return orders have the order total is bigger than the balance
+- apply a 10% discount to all order totals
+
+
+use order_app
+db.orders.insert([---------------])
+db.orders.findOne()
+db.orders.createIndex({"user.email": 1, time:1})
+db.orders.createIndex({"restaurant.name": 1, time:1})
+db.orders.find().sort({total: -1}).limit(1)
+db.orders.find().sort({"restaurant.name": 1})
+db.orders.find({$expr: {$gt: ["$total", "$user.balance"]}})
+db.orders.updateMany({}, {$mul: {total: 0.9}})
+
+
+
+
+
+
+
+
+

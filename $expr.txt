@@ -1,0 +1,15 @@
+$expr
+------------------------------------------------------------
+use sample_db
+db.movies.findOne()
+db.movies.find({}, {title: 1, rating: 1})
+db.movies.find({$expr: {$gt: [{$multiply : ["$ratings.mndb", 10]}, "$ratings.soft_avocados]}})
+
+
+
+
+
+
+
+
+

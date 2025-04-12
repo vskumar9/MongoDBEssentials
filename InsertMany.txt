@@ -1,0 +1,45 @@
+InsertMany
+------------------------------------------------------------------
+db.authort.insertOne({<Document>})
+db.authort.insertMany({<Document>})
+
+Durability---
+A property that guarantees that acknowledged writes are permanently stored in the database, even if the database or parts there of become
+temporarily unavailable 
+
+Configurable in MongoDB by specifying a write Concern
+-----------------------
+High durability - slower writes
+Low durability - high writes
+
+Configuring Durability
+-----------
+db.authors.insertOne({<Document>}, {w: <value>, j: <bool>, wtimeout: <number> })
+db.authors.insertOne({name: "sanjeev"}, {w: "majority", j: "true", wtimeout: 100 })
+
+Which writeConcern?
+What would happen if you lost changes?
+Can't happen - w: "majority", data survives failovers
+Inconvenience, but OK - w: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

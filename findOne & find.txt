@@ -1,0 +1,58 @@
+findOne & find
+-------------------------------------------------
+show dbs
+use sample_db
+show collections
+db.inventory.findOne()
+db.inventory.find()
+
+specific document
+----------------
+db.inventory.findOne({"ratings.mndb" : 10})
+
+specific document inside but structure value is genres:["Music"] like
+---------------------------------------------------------------------
+db.inventory.findOne({"genres.0" : "Music"})
+
+Consistency and availability
+----------------------------
+Allows you to see only data that is majority committed
+Configurable in MongoDB by specifying a readConcern
+
+db.authors.find({document}).readConcern("majority")
+local(default)
+available
+majority
+linearizable
+
+
+Configuring the readPreference
+--------------------------------
+Allows the application to route reads to secondaries
+- primary(default)
+- primaryPreferred 
+- secondary
+- secondaryPreferred 
+- nearest(lowest latency)
+
+Allows you to read data from secondaries
+Risk of reading stale data
+Fine for analytics
+Don't use to increase the capacity for general traffic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

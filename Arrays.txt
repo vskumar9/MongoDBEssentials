@@ -1,0 +1,19 @@
+Arrays
+------------------------------------------------
+use sample_db
+db.movies.findOne()
+db.movies.findOne({genres: "Comedy"})
+db.movies.findOne({genres: ["Comedy", "Drama"]})
+db.movies.findOne({genres:{$all: ["Comedy", "Drama"]}}) ---> both matches documents only retrieved
+db.inventory.findOne()
+db.inventory.findOne({variations: {$elemMatch: 	{variation: "blue", quantity: {$gte: 8}}}})
+db.movies.findOne()
+db.movies.updateOne({_id: ObjectId(5678uh)}, {$push: {genres: "Test"}}) --> adding array genres ["sadd", "Test"] like
+db.movies.findOne({_id: ObjectId(5678uh)})
+db.movies.updateOne({_id: ObjectId(5678uh)}, {$addToSet: {genres: "Test"}}) --> check and (if already exist not added)adding array genres ["sadd", "Test"] like
+db.movies.updateOne({_id: ObjectId(5678uh)}, {$pop: {genres: 1}}) --> remove last item of array genres ["sadd", "Test"] like
+
+
+
+
+

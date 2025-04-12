@@ -1,0 +1,23 @@
+Logical Operators
+--------------------------------------
+$and(^}
+$or(v)
+$nor(^)
+$not(^)
+
+use sample_data
+db.invenroty.fineOne()
+db.invenroty.findOne({$and: [{"variations.qunatity": {$ne: 0}}, {"variations.qunatity": {$exists: true}}]})
+db.invenroty.findOne({$or: [{"variations.variation": "blue"}, {"variations.variation": "green"}]}) --> retrieve matches blue or green
+db.invenroty.findOne({$nor: [{"variations.variation": "blue"}, {"variations.variation": "green"}]}) --> opposite of $or
+db.invenroty.findOne({"variations.variation": {$not: {$gt: 2000}}})
+
+
+
+
+
+
+
+
+
+
